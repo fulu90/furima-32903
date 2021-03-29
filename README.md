@@ -29,7 +29,7 @@
 | status_id        | integer    | null: false                    |
 | postage_id       | integer    | null: false                    |
 | region_id        | integer    | null: false                    |
-| shipping_date_id | integer    | null: false                    |
+| shippingdate_id  | integer    | null: false                    |
 | selling_price    | integer    | null: false                    |
 | user             | references | null: false, foreign_key: true | 
 
