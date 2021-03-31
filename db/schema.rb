@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2021_03_28_094512) do
     t.integer "postage_id", null: false
     t.integer "region_id", null: false
     t.integer "shippingdate_id", null: false
-    t.integer "selling_price", null: false
+    t.string "selling_price", null: false
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

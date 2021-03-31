@@ -30,12 +30,18 @@
 | postage_id       | integer    | null: false                    |
 | region_id        | integer    | null: false                    |
 | shippingdate_id  | integer    | null: false                    |
-| selling_price    | integer    | null: false                    |
+| selling_price    | string     | null: false                    |
 | user             | references | null: false, foreign_key: true | 
 
 ### Association
 
 - belongs_to :user
+- belongs_to :category
+- belongs_to :status
+- belongs_to :postage
+- belongs_to :region
+- belongs_to :shippingdate
+- has_one_attached :image
 - has_one :buy
 
 
