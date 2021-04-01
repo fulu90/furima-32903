@@ -80,12 +80,17 @@ RSpec.describe Item, type: :model do
       it '販売価格が半角英字では出品できない' do
         @item.selling_price = 'abc'
         @item.valid?
-        expect(@item.errors.full_messages).to include('Selling price Half-width number')
+        expect(@item.errors.full_messages).to include("Selling price Out of setting range")
       end
       it '販売価格が全角数字では出品できない' do
         @item.selling_price = '１０００'
         @item.valid?
-        expect(@item.errors.full_messages).to include('Selling price Half-width number')
+        expect(@item.errors.full_messages).to include("Selling price Out of setting range")
+      end
+      it '販売価格が半角英数字混合では登録できない' do
+        @item.selling_price = '123abc'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Selling price Out of setting range")
       end
     end
   end

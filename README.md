@@ -30,7 +30,7 @@
 | postage_id       | integer    | null: false                    |
 | region_id        | integer    | null: false                    |
 | shippingdate_id  | integer    | null: false                    |
-| selling_price    | string     | null: false                    |
+| selling_price    | integer    | null: false                    |
 | user             | references | null: false, foreign_key: true | 
 
 ### Association
