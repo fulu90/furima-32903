@@ -12,11 +12,11 @@ RSpec.describe Item, type: :model do
         expect(@item).to be_valid
       end
       it '販売価格が半角数字で300円以上であれば出品できる' do
-        @item.selling_price = '300'
+        @item.selling_price = 300
         expect(@item).to be_valid
       end
       it '販売価格が半角数字で9,999,999円以内であれば出品できる' do
-        @item.selling_price = '9999999'
+        @item.selling_price = 9_999_999
         expect(@item).to be_valid
       end
     end
@@ -38,27 +38,27 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Description can't be blank")
       end
       it 'カテゴリー情報が未選択では出品できない' do
-        @item.category_id = '1'
+        @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Category Select')
       end
       it '商品の状態が未選択では出品できない' do
-        @item.status_id = '1'
+        @item.status_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Status Select')
       end
       it '配送料の負担が未選択では出品できない' do
-        @item.postage_id = '1'
+        @item.postage_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Postage Select')
       end
       it '発送元の地域が未選択では出品できない' do
-        @item.region_id = '1'
+        @item.region_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Region Select')
       end
       it '発送までの日数が未選択では出品できない' do
-        @item.shippingdate_id = '1'
+        @item.shippingdate_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Shippingdate Select')
       end
@@ -68,12 +68,12 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Selling price can't be blank")
       end
       it '販売価格が300円より少ないと出品できない' do
-        @item.selling_price = '299'
+        @item.selling_price = 299
         @item.valid?
         expect(@item.errors.full_messages).to include('Selling price Out of setting range')
       end
       it '販売価格が9,999,999円より多いと出品できない' do
-        @item.selling_price = '10000000'
+        @item.selling_price = 10_000_000
         @item.valid?
         expect(@item.errors.full_messages).to include('Selling price Out of setting range')
       end

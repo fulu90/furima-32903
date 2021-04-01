@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :move_action, only: :new
+  before_action :move_action, only: [:new, :create]
 
   def index
     @items = Item.all
