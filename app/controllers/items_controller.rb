@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :move_action, only: [:new, :create, :edit, :update]
   before_action :redirect_root, only: [:edit, :update]
+  before_action :set_item, only: [:edit, :show]
 
   def index
     @items = Item.all.order('created_at ASC')
@@ -20,11 +20,9 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
   end
 
   def edit
-    @item = Item.find(params[:id])
   end
 
   def update
@@ -43,8 +41,8 @@ class ItemsController < ApplicationController
                                  :selling_price).merge(user_id: current_user.id)
   end
 
-  def move_action
-    redirect_to new_user_session_path unless user_signed_in?
+  def set_item
+    @item = Item.find(params[:id])
   end
 
   def redirect_root
