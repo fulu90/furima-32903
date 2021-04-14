@@ -42,10 +42,10 @@
 - belongs_to :region
 - belongs_to :shippingdate
 - has_one_attached :image
-- has_one :buy
+- has_one :order
 
 
-## buys テーブル
+## Orders テーブル
 
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
@@ -64,14 +64,14 @@
 
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
-| postal_code   | string     | null: false                    |
+| postcode      | string     | null: false                    |
 | prefecture_id | integer    | null: false                    |
-| city_name     | string     | null: false                    |
-| address       | string     | null: false                    |
-| building_name | string     |                                |
+| city          | string     | null: false                    |
+| block         | string     | null: false                    |
+| building      | string     |                                |
 | phone_number  | string     | null: false                    |
-| buy           | references | null: false, foreign_key: true |
+| order         | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :buy
+- belongs_to :order
